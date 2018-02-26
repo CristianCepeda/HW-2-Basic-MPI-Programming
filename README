@@ -1,3 +1,11 @@
+HW2: Advanced MPI Programming
+Implementing Collective Operations
+
+Objectives:
+This goal of this assignment is to practice MPI programming and to design
+collective operations by hand (using point-to-point MPI operations).
+
+Details:
 /* The following function is a collective operation; that is, it shall be
 called by all mpi processes or none at all. (Use MPI_COMM_WORLD.) Each process
 is expected to provide an integer 'x', and the function returns the total sum
@@ -23,4 +31,15 @@ void collect_all(char* sendbuf, int sendcnt, char** recvbuf, int* recvcnt);
 If you run the test with, say, 4 MPI processes, the result should look similar
 to:
               [0] add_all->6
-              [2] collect_all[3]->"hello from rank 3" (sz=18) 
+              [2] collect_all[3]->"hello from rank 3" (sz=18)
+
+
+NOTES FOR POINT-TO-POINT COMMUNICATION
+https://cvw.cac.cornell.edu/mpip2p/p2pdef
+- Involves the transfer of a message from one specific process to another
+specific process in the communicator.
+
+- Blocking Communication: means that the process waits to ensure the message
+data have achieved a particular state before processing can continue.
+- Nonblocking Communication: means that the processor merely requests to start 
+an operation and continues processing.
